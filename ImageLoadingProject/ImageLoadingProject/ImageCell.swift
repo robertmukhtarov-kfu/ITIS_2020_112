@@ -41,7 +41,7 @@ class ImageCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        imageView?.image = nil
+        customImageView?.image = nil
         dataTask?.cancel()
     }
 }

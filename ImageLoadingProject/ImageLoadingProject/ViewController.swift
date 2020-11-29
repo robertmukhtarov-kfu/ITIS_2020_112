@@ -25,31 +25,34 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             urlString: "https://www.dropbox.com/s/vylo8edr24nzrcz/Airbus_Pleiades_50cm_8bit_RGB_Yogyakarta.jpg?dl=1"
         )
     ]
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        rows.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? ImageCell else {
             fatalError("Could not dequeue cell")
         }
-
-        cell.title = "Guinea pig"
-        cell.imageUrl = URL(string: "https://news.clas.ufl.edu/files/2020/06/AdobeStock_345118478-copy-1440x961-1.jpg")
+        let row = rows[indexPath.row]
+        switch row {
+        case .image(let title, let urlString):
+            cell.title = title
+            cell.imageUrl = URL(string: urlString)
+        case .largeImage(let title, let previewUrlString, _):
+            cell.title = title
+            cell.imageUrl = URL(string: previewUrlString)
+        }
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let detailsViewController = URLDetailsViewController()
-        detailsViewController.pageUrl = URL(string: "https://news.clas.ufl.edu/uncovering-the-origin-of-the-domesticated-guinea-pig/")
-        navigationController?.pushViewController(detailsViewController, animated: true)
+        let row = rows[indexPath.row]
+        guard case .largeImage(_, _, let urlString) = row else { return }
+        guard let scrollViewController: ScrollViewController = storyboard?.instantiateViewController(identifier: "ScrollViewController") else { return }
+        scrollViewController.imageUrl = URL(string: urlString)
+        navigationController?.pushViewController(scrollViewController, animated: true)
     }
 }
 

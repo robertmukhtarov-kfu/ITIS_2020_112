@@ -14,11 +14,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ImageLoadingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z22-gs-oMl">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="261" id="mcK-wh-PsT" customClass="ImageCell" customModule="ImageLoadingProject" customModuleProvider="target">
@@ -81,18 +81,27 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="93.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Scroll View Controller-->
         <scene sceneID="Wr0-Tm-aVR">
             <objects>
-                <viewController id="eTA-u5-l1M" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScrollViewController" id="eTA-u5-l1M" customClass="ScrollViewController" customModule="ImageLoadingProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t6d-wO-gnr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8df-gI-dNw">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8df-gI-dNw">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQS-xU-QTl">
+                                        <rect key="frame" x="87" y="345" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Syt-OZ-dRL"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="c0r-5w-qwb"/>
+                                <connections>
+                                    <outlet property="delegate" destination="eTA-u5-l1M" id="gRn-Qs-7Pz"/>
+                                </connections>
                             </scrollView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="d0h-ra-sE0">
                                 <rect key="frame" x="132" y="446" width="150" height="4"/>
@@ -105,14 +114,19 @@
                         <viewLayoutGuide key="safeArea" id="cCS-mO-KWq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8df-gI-dNw" firstAttribute="bottom" secondItem="cCS-mO-KWq" secondAttribute="bottom" id="3Qu-Fl-Huq"/>
+                            <constraint firstItem="8df-gI-dNw" firstAttribute="bottom" secondItem="t6d-wO-gnr" secondAttribute="bottom" id="3Qu-Fl-Huq"/>
                             <constraint firstItem="d0h-ra-sE0" firstAttribute="centerX" secondItem="t6d-wO-gnr" secondAttribute="centerX" id="B94-d8-MdM"/>
-                            <constraint firstItem="8df-gI-dNw" firstAttribute="top" secondItem="cCS-mO-KWq" secondAttribute="top" id="Bby-QX-tFj"/>
+                            <constraint firstItem="8df-gI-dNw" firstAttribute="top" secondItem="t6d-wO-gnr" secondAttribute="top" id="Bby-QX-tFj"/>
                             <constraint firstItem="8df-gI-dNw" firstAttribute="trailing" secondItem="cCS-mO-KWq" secondAttribute="trailing" id="Xk0-hO-yLi"/>
                             <constraint firstItem="8df-gI-dNw" firstAttribute="leading" secondItem="cCS-mO-KWq" secondAttribute="leading" id="XnK-W5-UJF"/>
                             <constraint firstItem="d0h-ra-sE0" firstAttribute="centerY" secondItem="t6d-wO-gnr" secondAttribute="centerY" id="zJF-rT-SE7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="aQS-xU-QTl" id="eO2-1B-jTI"/>
+                        <outlet property="progressView" destination="d0h-ra-sE0" id="6xw-kK-1tv"/>
+                        <outlet property="scrollView" destination="8df-gI-dNw" id="ux0-JB-OoE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UCO-s5-MPl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,7 +137,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1LH-17-Cbb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="enz-6a-dEw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="enz-6a-dEw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

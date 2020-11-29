@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71F96FC62572BBA5008666A5 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F96FC52572BBA5008666A5 /* ScrollViewController.swift */; };
 		AEF3A30F2562D705007CCD92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF3A30E2562D705007CCD92 /* AppDelegate.swift */; };
 		AEF3A3112562D705007CCD92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF3A3102562D705007CCD92 /* SceneDelegate.swift */; };
 		AEF3A3132562D705007CCD92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF3A3122562D705007CCD92 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		71F96FC52572BBA5008666A5 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		AEF3A30B2562D705007CCD92 /* ImageLoadingProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageLoadingProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEF3A30E2562D705007CCD92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEF3A3102562D705007CCD92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				AEF3A3102562D705007CCD92 /* SceneDelegate.swift */,
 				AEF3A3122562D705007CCD92 /* ViewController.swift */,
 				AEF3A3232562DBB3007CCD92 /* ImageCell.swift */,
+				71F96FC52572BBA5008666A5 /* ScrollViewController.swift */,
 				AEF3A3272562E4D4007CCD92 /* URLDetailsViewController.swift */,
 				AEF3A3142562D705007CCD92 /* Main.storyboard */,
 				AEF3A3172562D706007CCD92 /* Assets.xcassets */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEF3A3132562D705007CCD92 /* ViewController.swift in Sources */,
+				71F96FC62572BBA5008666A5 /* ScrollViewController.swift in Sources */,
 				AEF3A3242562DBB3007CCD92 /* ImageCell.swift in Sources */,
 				AEF3A30F2562D705007CCD92 /* AppDelegate.swift in Sources */,
 				AEF3A3112562D705007CCD92 /* SceneDelegate.swift in Sources */,
